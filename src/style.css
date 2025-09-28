@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 极简设计系统 */
+:root {
+  /* 单色调 + 蓝色强调 */
+  --color-primary: #2563eb;
+  --color-primary-light: #3b82f6;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+}
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+@layer components {
+  /* 极简卡片 */
+  .card {
+    @apply bg-white rounded-lg border border-gray-200 p-4;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  }
+  
+  /* 极简按钮 */
+  .btn {
+    @apply px-3 py-1.5 rounded-md text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1;
+  }
+  
+  .btn-primary {
+    @apply btn bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-gray-100 text-gray-700 hover:bg-gray-200 focus:ring-gray-500;
+  }
+  
+  .btn-ghost {
+    @apply btn text-gray-600 hover:bg-gray-100 focus:ring-gray-500;
+  }
+  
+  /* 极简输入框 */
+  .input {
+    @apply w-full px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  }
+  
+  /* 极简文本域 */
+  .textarea {
+    @apply input resize-none;
+  }
+  
+  /* 状态指示器 */
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+  
+  .status-idle { @apply bg-gray-300; }
+  .status-loading { @apply bg-blue-500 animate-pulse; }
+  .status-success { @apply bg-green-500; }
+  .status-error { @apply bg-red-500; }
+  
+  /* 极简滚动条 */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(203 213 225) transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgb(203 213 225);
+    border-radius: 2px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(148 163 184);
+  }
+}
+
+@layer utilities {
+  /* 动画 */
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.2s ease;
+  }
+  
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+  
+  .slide-enter-active,
+  .slide-leave-active {
+    transition: all 0.3s ease;
+  }
+  
+  .slide-enter-from,
+  .slide-leave-to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* 移除不必要的样式 */
+* {
+  box-sizing: border-box;
+}
+
+/* 极简化全局样式 */
+button:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* 选择文本样式 */
+::selection {
+  @apply bg-blue-100 text-blue-900;
+}
+
+/* 响应式设计增强 */
+@media (max-width: 768px) {
+  .card {
+    @apply p-3;
+  }
+  
+  .btn {
+    @apply px-2 py-1 text-xs;
+  }
+  
+  .input, .textarea {
+    @apply text-sm;
+  }
+}
+
+/* 无障碍访问增强 */
+.btn:focus-visible,
+.input:focus-visible,
+.textarea:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* 暗色模式支持 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gray-50: #1f2937;
+    --color-gray-100: #374151;
+    --color-gray-200: #4b5563;
+    --color-gray-800: #f9fafb;
+    --color-gray-900: #ffffff;
+  }
+  
+  body {
+    @apply bg-gray-900 text-gray-100;
+  }
+  
+  .card {
+    @apply bg-gray-800 border-gray-700;
+  }
+  
+  .input, .textarea {
+    @apply bg-gray-700 border-gray-600 text-gray-100;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-700 text-gray-200 hover:bg-gray-600;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .card {
+    @apply shadow-none border border-gray-300;
+  }
+  
+  .btn {
+    @apply border border-gray-300;
+  }
+}
