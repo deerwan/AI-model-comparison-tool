@@ -186,8 +186,20 @@
     </div>
 
     <!-- 测试结果 -->
-    <div v-if="testResult" class="text-sm p-2 rounded" :class="testResult.success ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'">
-      {{ testResult.message }}
+    <div v-if="testResult" class="text-sm p-3 rounded-lg border" :class="testResult.success ? 'bg-green-50 text-green-700 border-green-200' : 'bg-red-50 text-red-700 border-red-200'">
+      <div class="flex items-start gap-2">
+        <div class="flex-shrink-0 mt-0.5">
+          {{ testResult.success ? '✅' : '❌' }}
+        </div>
+        <div class="flex-1">
+          <div class="font-medium mb-1">
+            {{ testResult.success ? '连接成功' : '连接失败' }}
+          </div>
+          <div class="text-xs leading-relaxed whitespace-pre-line">
+            {{ testResult.message }}
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- 当前配置信息 -->
@@ -258,7 +270,9 @@ import { API_PROVIDERS } from '../utils/constants'
 const providers = API_PROVIDERS
 
 const availableModels = computed(() => {
-  return selectedProvider.value ? providers[selectedProvider.value]?.models || [] : []
+  if (!selectedProvider.value) return []
+  const provider = providers[selectedProvider.value]
+  return provider?.models || []
 })
 
 const canTest = computed(() => {
@@ -281,11 +295,26 @@ const connectionStatus = computed(() => {
 const onProviderChange = () => {
   const provider = providers[selectedProvider.value]
   if (provider) {
+    // 更新API地址
     apiUrl.value = provider.url
     isCustomUrl.value = false
+    
+    // 清空模型选择
     selectedModel.value = ''
     customModelName.value = ''
     showCustomModel.value = false
+    modelName.value = '' // 清空当前模型名称
+    
+    // 清空测试结果
+    testResult.value = null
+  } else if (selectedProvider.value === 'custom') {
+    // 自定义API的情况
+    apiUrl.value = ''
+    isCustomUrl.value = true
+    selectedModel.value = ''
+    customModelName.value = ''
+    showCustomModel.value = false
+    modelName.value = ''
     testResult.value = null
   }
 }
@@ -326,18 +355,27 @@ const testConnection = async () => {
   testResult.value = null
   
   try {
-    await APIClient.testConnection(modelConfig.value)
-    testResult.value = {
-      success: true,
-      message: '连接成功！模型配置正确。'
+    const result = await APIClient.testConnection(modelConfig.value)
+    
+    if (result.success) {
+      testResult.value = {
+        success: true,
+        message: result.message || '连接成功！模型配置正确。'
+      }
+      uiStore.showNotification('连接测试成功')
+    } else {
+      testResult.value = {
+        success: false,
+        message: result.message || result.error || '连接失败，请检查配置。'
+      }
+      uiStore.showError(`连接测试失败`)
     }
-    uiStore.showNotification('连接测试成功')
   } catch (error) {
     testResult.value = {
       success: false,
       message: error.message || '连接失败，请检查配置。'
     }
-    uiStore.showError(`连接测试失败: ${error.message}`)
+    uiStore.showError(`连接测试失败`)
   } finally {
     isTesting.value = false
   }
@@ -346,6 +384,14 @@ const testConnection = async () => {
 // 初始化
 const initializeFromConfig = () => {
   const config = modelConfig.value
+  
+  // 重置状态
+  selectedProvider.value = ''
+  selectedModel.value = ''
+  customModelName.value = ''
+  showCustomModel.value = false
+  isCustomUrl.value = false
+  
   if (config.apiUrl) {
     // 尝试匹配已知的提供商
     for (const [key, provider] of Object.entries(providers)) {
@@ -361,7 +407,7 @@ const initializeFromConfig = () => {
     }
   }
   
-  if (config.modelName && selectedProvider.value) {
+  if (config.modelName && selectedProvider.value && selectedProvider.value !== 'custom') {
     const models = providers[selectedProvider.value]?.models || []
     const foundModel = models.find(m => m.id === config.modelName)
     if (foundModel) {
@@ -370,6 +416,10 @@ const initializeFromConfig = () => {
       showCustomModel.value = true
       customModelName.value = config.modelName
     }
+  } else if (config.modelName) {
+    // 自定义模型的情况
+    showCustomModel.value = true
+    customModelName.value = config.modelName
   }
 }
 

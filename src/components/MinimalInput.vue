@@ -23,14 +23,26 @@
           class="input text-sm w-full"
         >
           <option value="">选择预设模板...</option>
-          <option value="translate">翻译助手</option>
-          <option value="code">代码助手</option>
-          <option value="creative">创意写作</option>
-          <option value="analysis">数据分析</option>
-          <option value="summary">内容总结</option>
-          <option value="qa">问答助手</option>
-          <option value="brainstorm">头脑风暴</option>
-          <option value="review">文本审查</option>
+          <optgroup label="📝 文本处理">
+            <option value="translate">🌐 翻译助手</option>
+            <option value="summary">📝 内容总结</option>
+            <option value="review">🔍 文本审查</option>
+            <option value="explain">📚 概念解释</option>
+          </optgroup>
+          <optgroup label="💻 编程相关">
+            <option value="code">💻 代码助手</option>
+            <option value="debug">🐛 代码调试</option>
+          </optgroup>
+          <optgroup label="🧠 思维工具">
+            <option value="analysis">📊 数据分析</option>
+            <option value="compare">⚖️ 对比分析</option>
+            <option value="brainstorm">💡 头脑风暴</option>
+            <option value="plan">📋 制定计划</option>
+          </optgroup>
+          <optgroup label="🎨 创意写作">
+            <option value="creative">✍️ 创意写作</option>
+            <option value="qa">❓ 问答助手</option>
+          </optgroup>
         </select>
       </div>
     </div>
