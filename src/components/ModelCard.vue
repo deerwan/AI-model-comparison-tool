@@ -71,6 +71,30 @@
       />
     </div>
 
+    <!-- 服务商链接 -->
+    <div v-if="providerInfo" class="bg-gray-100 p-2.5 rounded-lg text-sm">
+      <div class="flex items-center justify-around gap-2">
+        <a 
+          v-if="providerInfo.docsUrl"
+          :href="providerInfo.docsUrl" 
+          target="_blank" 
+          class="link-item"
+        >
+          <span class="text-lg">📚</span>
+          <span>API文档</span>
+        </a>
+        <a 
+          v-if="providerInfo.apiKeyUrl"
+          :href="providerInfo.apiKeyUrl" 
+          target="_blank" 
+          class="link-item"
+        >
+          <span class="text-lg">🔑</span>
+          <span>获取密钥</span>
+        </a>
+      </div>
+    </div>
+
     <!-- 模型选择 -->
     <div>
       <label class="block text-sm font-medium text-gray-700 mb-1">模型</label>
@@ -275,6 +299,11 @@ const availableModels = computed(() => {
   return provider?.models || []
 })
 
+const providerInfo = computed(() => {
+  if (!selectedProvider.value || selectedProvider.value === 'custom') return null
+  return providers[selectedProvider.value]
+})
+
 const canTest = computed(() => {
   return apiUrl.value && modelName.value && apiKey.value
 })
@@ -426,3 +455,9 @@ const initializeFromConfig = () => {
 // 监听配置变化
 watch(() => modelConfig.value, initializeFromConfig, { immediate: true })
 </script>
+
+<style scoped>
+.link-item {
+  @apply flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors duration-200;
+}
+</style>

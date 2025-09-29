@@ -4,6 +4,8 @@ export const API_PROVIDERS = {
   openai: {
     name: 'OpenAI',
     url: 'https://api.openai.com/v1/chat/completions',
+    docsUrl: 'https://platform.openai.com/docs/api-reference/chat',
+    apiKeyUrl: 'https://platform.openai.com/api-keys',
     models: [
       { id: 'gpt-4o', name: 'GPT-4o', description: '最新多模态模型 (2024-08-06)', maxTokens: 128000 },
       { id: 'gpt-4o-2024-08-06', name: 'GPT-4o (2024-08-06)', description: '指定版本', maxTokens: 128000 },
@@ -20,6 +22,8 @@ export const API_PROVIDERS = {
   anthropic: {
     name: 'Anthropic (Claude)',
     url: 'https://api.anthropic.com/v1/messages',
+    docsUrl: 'https://docs.anthropic.com/claude/reference/messages_post',
+    apiKeyUrl: 'https://console.anthropic.com/settings/keys',
     models: [
       { id: 'claude-3-5-sonnet-20241022', name: 'Claude 3.5 Sonnet (New)', description: '最新版本 (2024-10-22)', maxTokens: 200000 },
       { id: 'claude-3-5-sonnet-20240620', name: 'Claude 3.5 Sonnet', description: '经典3.5版本 (2024-06-20)', maxTokens: 200000 },
@@ -32,6 +36,8 @@ export const API_PROVIDERS = {
   google: {
     name: 'Google Gemini',
     url: 'https://generativelanguage.googleapis.com/v1beta/models',
+    docsUrl: 'https://ai.google.dev/gemini-api/docs',
+    apiKeyUrl: 'https://makersuite.google.com/app/apikey',
     models: [
       { id: 'gemini-1.5-pro-latest', name: 'Gemini 1.5 Pro (Latest)', description: '最新专业版', maxTokens: 2000000 },
       { id: 'gemini-1.5-pro', name: 'Gemini 1.5 Pro', description: '专业版', maxTokens: 2000000 },
@@ -46,6 +52,8 @@ export const API_PROVIDERS = {
   openrouter: {
     name: 'OpenRouter',
     url: 'https://openrouter.ai/api/v1/chat/completions',
+    docsUrl: 'https://openrouter.ai/docs',
+    apiKeyUrl: 'https://openrouter.ai/keys',
     models: [
       { id: 'anthropic/claude-3.5-sonnet:beta', name: 'Claude 3.5 Sonnet', description: '通过OpenRouter', maxTokens: 200000 },
       { id: 'openai/gpt-4o', name: 'GPT-4o', description: '通过OpenRouter', maxTokens: 128000 },
@@ -62,6 +70,8 @@ export const API_PROVIDERS = {
   together: {
     name: 'Together AI',
     url: 'https://api.together.xyz/v1/chat/completions',
+    docsUrl: 'https://docs.together.ai/intro',
+    apiKeyUrl: 'https://api.together.xyz/settings/api-keys',
     models: [
       { id: 'meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo', name: 'Llama 3.1 405B Turbo', description: '最大开源模型加速版', maxTokens: 128000 },
       { id: 'meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo', name: 'Llama 3.1 70B Turbo', description: '大型开源模型加速版', maxTokens: 128000 },
@@ -76,6 +86,8 @@ export const API_PROVIDERS = {
   replicate: {
     name: 'Replicate',
     url: 'https://api.replicate.com/v1/predictions',
+    docsUrl: 'https://replicate.com/docs/reference/http',
+    apiKeyUrl: 'https://replicate.com/account/api-tokens',
     models: [
       { id: 'meta/llama-2-70b-chat', name: 'Llama 2 70B Chat', description: 'Meta开源对话', maxTokens: 4096 },
       { id: 'mistralai/mixtral-8x7b-instruct-v0.1', name: 'Mixtral 8x7B', description: 'Mistral模型', maxTokens: 32768 }
@@ -84,6 +96,8 @@ export const API_PROVIDERS = {
   huggingface: {
     name: 'Hugging Face',
     url: 'https://api-inference.huggingface.co/models',
+    docsUrl: 'https://huggingface.co/docs/api-inference/index',
+    apiKeyUrl: 'https://huggingface.co/settings/tokens',
     models: [
       { id: 'microsoft/DialoGPT-large', name: 'DialoGPT Large', description: '微软对话模型', maxTokens: 1024 },
       { id: 'facebook/blenderbot-400M-distill', name: 'BlenderBot 400M', description: 'Facebook对话机器人', maxTokens: 512 }
@@ -92,6 +106,8 @@ export const API_PROVIDERS = {
   cohere: {
     name: 'Cohere',
     url: 'https://api.cohere.ai/v1/chat',
+    docsUrl: 'https://docs.cohere.com/reference/chat',
+    apiKeyUrl: 'https://dashboard.cohere.com/api-keys',
     models: [
       { id: 'command-r-plus', name: 'Command R+', description: '最新指令模型', maxTokens: 128000 },
       { id: 'command-r', name: 'Command R', description: '标准指令模型', maxTokens: 128000 },
@@ -102,6 +118,8 @@ export const API_PROVIDERS = {
   groq: {
     name: 'Groq',
     url: 'https://api.groq.com/openai/v1/chat/completions',
+    docsUrl: 'https://console.groq.com/docs/api-reference',
+    apiKeyUrl: 'https://console.groq.com/keys',
     models: [
       { id: 'llama-3.1-405b-reasoning', name: 'Llama 3.1 405B', description: '超大模型推理优化', maxTokens: 131072 },
       { id: 'llama-3.1-70b-versatile', name: 'Llama 3.1 70B', description: '大型多用途模型', maxTokens: 131072 },
@@ -114,6 +132,8 @@ export const API_PROVIDERS = {
   perplexity: {
     name: 'Perplexity',
     url: 'https://api.perplexity.ai/chat/completions',
+    docsUrl: 'https://docs.perplexity.ai/reference/chat-completions',
+    apiKeyUrl: 'https://www.perplexity.ai/settings/api',
     models: [
       { id: 'llama-3.1-sonar-large-128k-online', name: 'Sonar Large Online', description: '联网大模型', maxTokens: 127072 },
       { id: 'llama-3.1-sonar-small-128k-online', name: 'Sonar Small Online', description: '联网小模型', maxTokens: 127072 },
@@ -126,6 +146,8 @@ export const API_PROVIDERS = {
   fireworks: {
     name: 'Fireworks AI',
     url: 'https://api.fireworks.ai/inference/v1/chat/completions',
+    docsUrl: 'https://readme.fireworks.ai/reference/createchatcompletion',
+    apiKeyUrl: 'https://fireworks.ai/api-keys',
     models: [
       { id: 'accounts/fireworks/models/llama-v3p1-405b-instruct', name: 'Llama 3.1 405B', description: '超大模型', maxTokens: 131072 },
       { id: 'accounts/fireworks/models/llama-v3p1-70b-instruct', name: 'Llama 3.1 70B', description: '大型模型', maxTokens: 131072 },
@@ -139,6 +161,8 @@ export const API_PROVIDERS = {
   baidu: {
     name: '百度文心一言',
     url: 'https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions',
+    docsUrl: 'https://cloud.baidu.com/doc/WENXINWORKSHOP/s/clntwmv7t',
+    apiKeyUrl: 'https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application',
     models: [
       { id: 'ernie-4.0-8k', name: 'ERNIE 4.0 8K', description: '文心大模型4.0', maxTokens: 8192 },
       { id: 'ernie-4.0-turbo-8k', name: 'ERNIE 4.0 Turbo', description: '文心4.0加速版', maxTokens: 8192 },
@@ -153,6 +177,8 @@ export const API_PROVIDERS = {
   alibaba: {
     name: '阿里通义千问',
     url: 'https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation',
+    docsUrl: 'https://help.aliyun.com/zh/dashscope/developer-reference/api-details',
+    apiKeyUrl: 'https://dashscope.console.aliyun.com/apiKey',
     models: [
       { id: 'qwen-max', name: 'Qwen Max', description: '通义千问旗舰版', maxTokens: 8192 },
       { id: 'qwen-max-0428', name: 'Qwen Max (0428)', description: '指定版本', maxTokens: 8192 },
@@ -170,6 +196,8 @@ export const API_PROVIDERS = {
   tencent: {
     name: '腾讯混元',
     url: 'https://hunyuan.tencentcloudapi.com/',
+    docsUrl: 'https://cloud.tencent.com/document/product/1729/97732',
+    apiKeyUrl: 'https://console.cloud.tencent.com/cam/capi',
     models: [
       { id: 'hunyuan-pro', name: '混元 Pro', description: '腾讯混元专业版', maxTokens: 32768 },
       { id: 'hunyuan-standard', name: '混元标准版', description: '腾讯混元标准版', maxTokens: 4096 },
@@ -180,6 +208,8 @@ export const API_PROVIDERS = {
   zhipu: {
     name: '智谱AI (GLM)',
     url: 'https://open.bigmodel.cn/api/paas/v4/chat/completions',
+    docsUrl: 'https://open.bigmodel.cn/dev/api',
+    apiKeyUrl: 'https://open.bigmodel.cn/usercenter/apikeys',
     models: [
       { id: 'glm-4-plus', name: 'GLM-4 Plus', description: '智谱GLM-4增强版', maxTokens: 128000 },
       { id: 'glm-4-0520', name: 'GLM-4 (0520)', description: '智谱GLM-4标准版', maxTokens: 128000 },
@@ -195,6 +225,8 @@ export const API_PROVIDERS = {
   moonshot: {
     name: '月之暗面 (Kimi)',
     url: 'https://api.moonshot.cn/v1/chat/completions',
+    docsUrl: 'https://platform.moonshot.cn/docs/api-reference',
+    apiKeyUrl: 'https://platform.moonshot.cn/console/api-keys',
     models: [
       { id: 'moonshot-v1-8k', name: 'Moonshot v1 8K', description: '8K上下文版本', maxTokens: 8192 },
       { id: 'moonshot-v1-32k', name: 'Moonshot v1 32K', description: '32K上下文版本', maxTokens: 32768 },
@@ -204,6 +236,8 @@ export const API_PROVIDERS = {
   deepseek: {
     name: 'DeepSeek',
     url: 'https://api.deepseek.com/v1/chat/completions',
+    docsUrl: 'https://platform.deepseek.com/api-docs/zh-cn/chat-api',
+    apiKeyUrl: 'https://platform.deepseek.com/api_keys',
     models: [
       { id: 'deepseek-chat', name: 'DeepSeek Chat', description: '深度求索对话模型', maxTokens: 32768 },
       { id: 'deepseek-coder', name: 'DeepSeek Coder', description: '深度求索代码模型', maxTokens: 32768 }
@@ -212,6 +246,8 @@ export const API_PROVIDERS = {
   minimax: {
     name: 'MiniMax',
     url: 'https://api.minimax.chat/v1/text/chatcompletion_pro',
+    docsUrl: 'https://platform.minimaxi.com/document/text_api_intro',
+    apiKeyUrl: 'https://platform.minimaxi.com/api-keys',
     models: [
       { id: 'abab6.5s-chat', name: 'ABAB 6.5s', description: 'MiniMax对话模型', maxTokens: 245760 },
       { id: 'abab6.5-chat', name: 'ABAB 6.5', description: 'MiniMax标准版', maxTokens: 8192 },
@@ -221,6 +257,8 @@ export const API_PROVIDERS = {
   xunfei: {
     name: '科大讯飞星火',
     url: 'https://spark-api-open.xf-yun.com/v1/chat/completions',
+    docsUrl: 'https://www.xfyun.cn/doc/spark/Web.html',
+    apiKeyUrl: 'https://console.xfyun.cn/services/iat',
     models: [
       { id: 'spark-max-32k', name: 'Spark Max 32K', description: '星火Max长文本', maxTokens: 32768 },
       { id: 'spark-max', name: 'Spark Max', description: '星火Max标准版', maxTokens: 8192 },
@@ -233,6 +271,8 @@ export const API_PROVIDERS = {
   sensetime: {
     name: '商汤日日新',
     url: 'https://api.sensenova.cn/v1/llm/chat-completions',
+    docsUrl: 'https://platform.sensenova.cn/product/APIService/document/',
+    apiKeyUrl: 'https://platform.sensenova.cn/console/llm/key',
     models: [
       { id: 'nova-ptc-xl-v1', name: 'Nova PTC XL', description: '商汤超大模型', maxTokens: 16384 },
       { id: 'nova-ptc-xs-v1', name: 'Nova PTC XS', description: '商汤轻量模型', maxTokens: 16384 }
@@ -241,6 +281,8 @@ export const API_PROVIDERS = {
   bytedance: {
     name: '字节豆包',
     url: 'https://ark.cn-beijing.volces.com/api/v3/chat/completions',
+    docsUrl: 'https://www.volcengine.com/docs/82379/1099475',
+    apiKeyUrl: 'https://console.volcengine.com/ark/key',
     models: [
       { id: 'doubao-pro-32k', name: '豆包 Pro 32K', description: '豆包专业长文本版', maxTokens: 32768 },
       { id: 'doubao-pro-4k', name: '豆包 Pro 4K', description: '豆包专业标准版', maxTokens: 4096 },
@@ -255,6 +297,8 @@ export const API_PROVIDERS = {
   ollama: {
     name: 'Ollama (本地)',
     url: 'http://localhost:11434/api/chat',
+    docsUrl: 'https://ollama.com/',
+    apiKeyUrl: '',
     models: [
       { id: 'llama3.1:405b', name: 'Llama 3.1 405B', description: 'Meta最大开源模型', maxTokens: 128000 },
       { id: 'llama3.1:70b', name: 'Llama 3.1 70B', description: 'Meta大型开源模型', maxTokens: 128000 },
@@ -274,6 +318,8 @@ export const API_PROVIDERS = {
   localai: {
     name: 'LocalAI',
     url: 'http://localhost:8080/v1/chat/completions',
+    docsUrl: 'https://localai.io/',
+    apiKeyUrl: '',
     models: [
       { id: 'gpt-3.5-turbo', name: 'LocalAI GPT-3.5', description: '本地GPT-3.5兼容', maxTokens: 4096 },
       { id: 'gpt-4', name: 'LocalAI GPT-4', description: '本地GPT-4兼容', maxTokens: 8192 }
@@ -282,6 +328,8 @@ export const API_PROVIDERS = {
   vllm: {
     name: 'vLLM',
     url: 'http://localhost:8000/v1/chat/completions',
+    docsUrl: 'https://vllm.ai/',
+    apiKeyUrl: '',
     models: [
       { id: 'meta-llama/Llama-2-7b-chat-hf', name: 'Llama 2 7B Chat', description: 'vLLM部署', maxTokens: 4096 },
       { id: 'meta-llama/Llama-2-13b-chat-hf', name: 'Llama 2 13B Chat', description: 'vLLM部署', maxTokens: 4096 }
@@ -290,6 +338,8 @@ export const API_PROVIDERS = {
   textgen: {
     name: 'Text Generation WebUI',
     url: 'http://localhost:5000/v1/chat/completions',
+    docsUrl: 'https://github.com/oobabooga/text-generation-webui',
+    apiKeyUrl: '',
     models: [
       { id: 'current-model', name: '当前加载模型', description: 'WebUI当前模型', maxTokens: 2048 }
     ]
@@ -297,6 +347,8 @@ export const API_PROVIDERS = {
   llamacpp: {
     name: 'llama.cpp',
     url: 'http://localhost:8080/v1/chat/completions',
+    docsUrl: 'https://github.com/ggerganov/llama.cpp',
+    apiKeyUrl: '',
     models: [
       { id: 'llama-model', name: 'Llama模型', description: 'llama.cpp服务', maxTokens: 2048 }
     ]

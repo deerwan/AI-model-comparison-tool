@@ -1,7 +1,6 @@
 # AI模型对比工具
 
-> 本项目基于 [hubhubgogo/AI-model-comparison](https://github.com/hubhubgogo/AI-model-comparison) 进行重构  
-> 感谢原作者的贡献，这是一个重构版本，采用了现代化的技术栈和架构设计
+> 基于 [hubhubgogo/AI-model-comparison](https://github.com/hubhubgogo/AI-model-comparison) 重构  
 
 一个优雅、现代化的AI模型对比工具，支持多种AI服务商和模型的并行对比测试。
 
@@ -143,9 +142,6 @@ src/
 4. 推送到分支
 5. 创建Pull Request
 
-## 📄 许可证
-
-MIT License - 详见 [LICENSE](LICENSE) 文件
 
 ## 🙏 致谢
 
