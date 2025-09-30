@@ -26,32 +26,6 @@
 - **键盘快捷键** - 高效的键盘操作支持
 - **错误处理** - 友好的错误提示和重试机制
 
-## 🚀 快速开始
-
-### 环境要求
-- Node.js 16+ 
-- npm 或 yarn
-
-### 安装依赖
-```bash
-npm install
-```
-
-### 开发模式
-```bash
-npm run dev
-```
-
-### 构建生产版本
-```bash
-npm run build
-```
-
-### 预览生产版本
-```bash
-npm run preview
-```
-
 ## 📖 使用指南
 
 ### 1. 配置模型
@@ -125,22 +99,6 @@ src/
 - **HTTPS支持** - 生产环境建议使用HTTPS部署
 - **CORS处理** - 正确配置跨域请求头
 
-## 🤝 贡献指南
-
-欢迎提交Issue和Pull Request！
-
-### 开发规范
-- 使用Vue 3 Composition API
-- 遵循ESLint配置
-- 组件命名使用PascalCase
-- 提交信息使用约定式提交格式
-
-### 提交流程
-1. Fork项目
-2. 创建特性分支
-3. 提交更改
-4. 推送到分支
-5. 创建Pull Request
 
 
 ## 🙏 致谢
